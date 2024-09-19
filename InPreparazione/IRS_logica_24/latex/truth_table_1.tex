@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{matrix, positioning, shapes.geometric}
+
+\begin{document}
+\pagecolor{black}
+\color{white}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+P & Q & R & S & $(P \land Q)$ & $(\neg R \land \neg S)$ & $((P \land Q) \lor (\neg R \land \neg S))$ \\
+\hline
+F & F & F & F & F & V & V \\
+\hline
+F & F & F & V & F & F & F \\
+\hline
+F & F & V & F & F & F & F \\
+\hline
+F & F & V & V & F & F & F \\
+\hline
+F & V & F & F & F & V & V \\
+\hline
+F & V & F & V & F & F & F \\
+\hline
+F & V & V & F & F & F & F \\
+\hline
+F & V & V & V & F & F & F \\
+\hline
+V & F & F & F & F & V & V \\
+\hline
+V & F & F & V & F & F & F \\
+\hline
+V & F & V & F & F & F & F \\
+\hline
+V & F & V & V & F & F & F \\
+\hline
+V & V & F & F & V & V & V \\
+\hline
+V & V & F & V & V & F & V \\
+\hline
+V & V & V & F & V & F & V \\
+\hline
+V & V & V & V & V & F & V \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    P & Q & $(P \land Q)$ \\
+    \hline
+    F & F & F \\
+    \hline
+    F & F & F \\
+    \hline
+    F & F & F \\
+    \hline
+    F & F & F \\
+    \hline
+    F & V & F \\
+    \hline
+    F & V & F \\
+    \hline
+    F & V & F \\
+    \hline
+    F & V & F \\
+    \hline
+    V & F & F \\
+    \hline
+    V & F & F \\
+    \hline
+    V & F & F \\
+    \hline
+    V & F & F \\
+    \hline
+    V & V & V \\
+    \hline
+    V & V & V \\
+    \hline
+    V & V & V \\
+    \hline
+    V & V & V \\
+    \hline
+    \end{tabular}
+    \end{center}
+\end{document}
