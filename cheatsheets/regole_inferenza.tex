@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+\usepackage{fix-cm}
+\usepackage{enumitem}
+
+% Define document-specific variables before loading template
+\newcommand{\DocumentTitle}{Principali Regole di Inferenza}  % This will change for each document
+
+% Load the template
+\input{irs-template.tex}
+
+\begin{document}
+
+% Use the custom title command
+\MakeCustomTitle{Cheatsheet}
+
+
+% Document content goes here
+\section*{Regole di inferenza}
+
+    \begin{description}[
+        align=left,          % Aligns the descriptions to the left
+        leftmargin=0pt,      % Removes the left margin
+        itemindent=0pt,      % Removes item indentation
+        style=nextline       % Sets the style to wrap the item text
+    ]
+
+        \item[Eliminazione della congiunzione ($\wedge$-elim)]
+        Da una congiunzione si possono dedurre i due congiunti.
+        \[
+        \dfrac{
+        \begin{array}{l}
+        P \wedge Q
+        \end{array}
+        }{P} \qquad
+        \dfrac{
+        \begin{array}{l}
+        P \wedge Q
+        \end{array}
+        }{Q}
+        \]
+
+        \item[Introduzione della congiunzione ($\wedge$-int)]
+        Da due proposizioni si può dedurre la loro congiunzione.
+        \[
+        \dfrac{
+        \begin{array}{l}
+        P\\
+        Q
+        \end{array}
+        }{P \wedge Q}
+        \]
+
+
+        \item[Modus ponens (MP)]
+        Da un condizionale e l'antecedente si può dedurre il conseguente.
+        \[
+        \dfrac{
+        \begin{array}{l}
+        P\\
+        P \to Q
+        \end{array}
+        }{Q}
+        \]
+
+        \item[Modus tollens (MT)]
+        Da un condizionale e la negazione del conseguente si può dedurre l'antecedente.
+        \[
+        \dfrac{
+        \begin{array}{l}
+        \neg P\\
+        P \to Q
+        \end{array}
+        }{\neg P}
+        \]
+
+
+        \item[Eliminazione della doppia negazione (DN-elim)]
+        Dalla doppia negazione di una proposizione posso dedurre la proposizione stessa.
+        \[
+        \dfrac{
+        \begin{array}{l}
+        \neg \neg P\\
+        \end{array}
+        }{P}
+        \]
+
+        \item[Sillogismo disgiuntivo (SD)]
+        Se ho una disgiunzione e la negazione di uno dei due disgiunti, posso dedurre l'altro disgiunto.
+        \[
+        \dfrac{
+        \begin{array}{l}
+        P\lor Q\\
+        \neg P
+        \end{array}
+        }{\neg Q}
+        \]
+
+        \item[Contrapposizione del condizionale (CC)]
+        Posso sempre trasformare un condizionale in un altro condizionale equivalente che ha antecedente e conseguente invertiti e negati.
+        \[
+        \dfrac{
+        \begin{array}{l}
+        P\to Q\\
+        \end{array}
+        }{\neg Q \ to \neg P}
+        \]
+
+        \item[Ragionamento per assurdo (ABS)]
+        Per dimostrare $Q$, ipotizzo che $\neg Q$. Se da premesse $P_1, P_2, \ldots, P_n, \neg Q$ si può dedurre una contraddizione, allora si può dedurre $Q$.
+        \[
+        \dfrac{
+        \begin{array}{l}
+        P_1\\
+        P_2\\
+        \vdots\\
+        P_n\\
+        \neg Q\\
+        \bot\footnotemark
+        \end{array}
+        }{Q}
+        \]
+
+        \item[Eliminazione del quantificatore universale ($\forall$-elim)]
+        Se ho una proposizione che vale per ogni $x$, posso dedurre che vale per un $x$ arbitrario.
+        \[
+        \dfrac{
+        \forall x P(x)
+            }
+            {P(a)}
+        \]
+        \item[Introduzione del quantificatore esistenziale ($\exists$-elim)]
+        Se so che un predicato vale per un $a$ arbitrario, posso dedurre che esiste un $x$ tale che il predicato vale per $x$.
+        \[
+        \dfrac{
+        P(a)
+            }
+            {\exists x P(x)}
+        \]
+        \item[Eliminazione del quantificatore esistenziale ($\exists$-elim)]
+        Se so che esiste un $x$ tale che il predicato vale per $x$, posso dedurre che il predicato vale per un $a$ arbitrario.
+        \[
+        \dfrac{
+        \exists x P(x)
+            }
+            {P(a)\footnotemark}
+        \]
+
+    \end{description}
+    \footnotetext{Simbolo per indicare una contraddizione.}
+    \footnotetext{A patto che $a$ non occorra in $P(x)$, né in nessuna delle premesse $P_1, P_2, \ldots, P_n$, e che non venga di nuovo utilizzata in una nuova applicazione di $\exists$-elim.}
+\end{document}

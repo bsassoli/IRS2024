@@ -1,0 +1,77 @@
+% header-template.tex
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+\usepackage{microtype}
+% \usepackage{tgpagella}
+%\usepackage[T1]{fontenc}
+%\usepackage{newtxmath}
+
+% Alternative font closer to University of Milan's official font
+\usepackage[cmintegrals,cmbraces]{newtxmath}
+\usepackage{ebgaramond-maths}
+\usepackage[T1]{fontenc}
+
+% Define default values for variables
+\providecommand{\CourseTitle}{Introduzione al ragionamento scientifico}
+\providecommand{\AcademicYear}{2024\mbox{-}25}
+\providecommand{\Professor}{prof. Bernardino Sassoli de' Bianchi}
+\providecommand{\DocumentDate}{Ottobre 2024}
+\providecommand{\DocumentTitle}{Regole di inferenza}
+\providecommand{\DocumentType}{Cheatsheet}
+
+\geometry{a4paper, margin=1in}
+\setlength{\headheight}{46.27916pt}
+\addtolength{\topmargin}{-34.27916pt}
+
+
+
+% Remove header rule
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{firstpage}{%
+    \fancyhf{} % clear all headers and footers
+    \fancyhead[L]{%
+        \begin{minipage}[c]{0.5\textwidth}
+            \includegraphics[width=3.5cm]{marchio-04.jpg}
+        \end{minipage}%
+    }
+    \fancyhead[R]{%
+        \begin{minipage}[c]{0.6\textwidth}
+            \raggedleft
+            {\footnotesize
+            \CourseTitle\\
+            \Professor\\
+            A.A. \AcademicYear\\
+            }
+        \end{minipage}%
+    }
+}
+
+% Define style for other pages
+\fancypagestyle{followingpage}{%
+    \fancyhf{} % clear all headers and footers
+    \fancyhead[R]{\small\DocumentTitle}
+    \fancyfoot[R]{\thepage}
+}
+
+% Set up the page styles to apply automatically
+\AtBeginDocument{%
+    \pagestyle{followingpage}% Set default style for all pages
+    \thispagestyle{firstpage}% Override first page only
+}
+
+% Command for the standard title block
+\newcommand{\MakeCustomTitle}[1]{%
+    \begin{center}
+    \vspace*{2cm}
+    {\Large\textbf{#1}\\[0.5cm]
+    \DocumentTitle}
+    \end{center}
+    \vspace{1cm}
+}
